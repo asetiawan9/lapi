@@ -77,7 +77,7 @@
 		                                <td><?php echo $i ?></td>
 		                                <td><?php echo $pekerjaan->list_tugas ?></td>
                                         <?php if ($pekerjaan->bukti != "") {?>
-                                        <td> <a href="<?php echo base_url('assets/images/buktipekerjaan/'.$pekerjaan->bukti) ?>"><img width="300" src="<?php echo base_url('assets/images/buktipekerjaan/'. $pekerjaan->bukti) ?>"> </a> </td>
+                                        <td> <a target=\"_blank\" href="<?php echo base_url('assets/images/buktipekerjaan/'.$pekerjaan->bukti) ?>"><img width="200" src="<?php echo base_url('assets/images/buktipekerjaan/'. $pekerjaan->bukti) ?>"> </a> </td>
                                         <?php }else{ ?>
 
                                         <td > <?php include('upload.php'); ?></td>

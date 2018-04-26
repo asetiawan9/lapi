@@ -28,7 +28,7 @@ class pekerjaan extends CI_Controller
 		$data = array(	'title' 			=> 'Data Projek',
 						'projek' 			=> $projek,
 						'klien'				=> $klien,
-						'klien2'			=> $klien2,
+						'klien2'			=> $klien2, 
 						'user'				=> $user,
 						'user1'				=> $user1,
 						'isi' 				=> 'konsultant/pekerjaan/list');
@@ -63,7 +63,7 @@ class pekerjaan extends CI_Controller
 			//kalau cover d upload 
 			if(!empty($_FILES['bukti']['name'])){
 			$config['upload_path']   = './assets/images/buktipekerjaan';
-			$config['allowed_types'] = 'gif|jpg|png|svg|jpeg';
+			$config['allowed_types'] = 'gif|jpg|png|svg|jpeg|docx';
 			$config['max_size']      = '12000'; // KB  
 			$this->upload->initialize($config);
 			if(! $this->upload->do_upload('bukti')) { 

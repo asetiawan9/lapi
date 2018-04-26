@@ -1,6 +1,6 @@
-<?php var_dump($pekerjaan1); ?>
-<button type="button" class="btn btn-outline btn-rounded btn-warning btn-sm" data-toggle="modal" data-target="#tambahpekerjaan"><i class="fa fa-edit"></i></i></button>
-
+<p>
+<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#tambahpekerjaan"><i class="fa fa-plus"></i> Tambah Pekerjaan</button>
+</p>
 
 <div class="modal fade" id="tambahpekerjaan" role="dialog">
     <div class="modal-dialog">    
@@ -24,6 +24,9 @@
             <label>Pekerjaan</label>
            <textarea type="text" class="form-control form-control-line" name="list_tugas" > </textarea></div>
         </div>
+
+        <input type="hidden" name="id_projek" value="<?php echo $id ?>" >
+        
         <div class="modal-footer">
           <input type="submit" name="submit" class="btn btn-info" value="Simpan Data">
           <button type="button" class="btn btn-warning" data-dismiss="modal"> Close </button>

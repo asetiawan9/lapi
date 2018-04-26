@@ -13,8 +13,24 @@
                 <li class="breadcrumb-item active"><?php echo $title ?></li>
             </ol>
         </div>
+
         
     </div>
+<div class="col-md-12">
+<?php 
+
+// notifikasi
+
+if($this->session->flashdata('sukses'))
+{
+  echo '<div class="alert alert-success"<i class="fa fa-check"></i>';
+  echo $this->session->flashdata('sukses');
+  echo '</div>';
+} ?>
+
+</div>
+
+
     <!-- ============================================================== -->
     <!-- End Bread crumb and right sidebar toggle -->
     <!-- ============================================================== -->
@@ -26,9 +42,13 @@
         <!-- Start Page Content -->
         <!-- ============================================================== -->
         <div class="row">
+
             <div class="col-lg-4 col-xlg-3 col-md-5">
                 <div class="card">
+
+
                     <div class="card-body">
+
                         <h4 class="card-title">Detail Projek <?php echo $title ?><hr></h4>
 
                         <form class="form-material m-t-40 row">
@@ -97,7 +117,7 @@
 		                                <td><?php echo $i ?></td>
 		                                <td><?php echo $pekerjaan->list_tugas ?></td>
                                         <?php if ($pekerjaan->bukti != "") {?>
-                                        <td> <img width="300" src="<?php echo base_url('assets/images/buktipekerjaan/'. $pekerjaan->bukti) ?>"> </td>
+                                        <td><a target=\"_blank\" href="<?php echo base_url('assets/images/buktipekerjaan/'. $pekerjaan->bukti) ?>"><img width="200" src="<?php echo base_url('assets/images/buktipekerjaan/'. $pekerjaan->bukti) ?>"></a>  </td>
                                         <?php }else{ ?>
                                         <td > Belum Selesai </td>
                                         <?php } ?>

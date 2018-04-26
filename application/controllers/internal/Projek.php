@@ -27,7 +27,7 @@ class Projek extends CI_Controller
 		$projek = $this->M_projek->listing();
 		$klien2 = $this->M_klien->listing();
 		$user = $this->M_user->listing();
-		$user1 = $this->M_user->listing();
+		$user1 = $this->M_user->listing(); 
 		
 
 		
@@ -123,7 +123,7 @@ class Projek extends CI_Controller
 
 		public function detail($id_projek)
 		{
-			$id = ($this->uri->segment(5))?$this->uri->segment(5):0;
+			$id = ($this->uri->segment(4))?$this->uri->segment(4):0;
 			$projek = $this->M_projek->get_one($id_projek);
 			$pekerjaan = $this->M_projek->pekerjaan($id_projek);
 			$pekerjaan1 = $this->M_projek->pekerjaan($id);
@@ -132,6 +132,7 @@ class Projek extends CI_Controller
 
 
 			$data = array(	'id_projek'			=> $id_projek,
+							'id'				=> $id,
 							'titlepekerjaan'	=> 'List Pekerjaan',
 							'title' 			=> $projek->nama_projek,
 							'projek' 			=> $projek,
@@ -160,6 +161,7 @@ class Projek extends CI_Controller
 		public function tambahpekerjaan($id_projek)
 	{
 		$pekerjaan 	= $this->M_pekerjaan->detail1($id_projek);
+		$id = ($this->uri->segment(4))?$this->uri->segment(4):0;
 
 		
 		//validasi
@@ -175,11 +177,11 @@ class Projek extends CI_Controller
 		}else{
 		$i = $this->input;
 		$data = array ( 	'id_projek'		=>	$i->post('id_projek'),
-							'isi_tugas'		=>	$i->post('isi_tugas')
+							'list_tugas'	=>	$i->post('list_tugas')
 						);
 		$this->M_pekerjaan->tambah($data);
-		$this->session->set_flashdata('sukses', 'Data pekerjaan telah ditambah');
-		redirect(base_url('index.php/internal/projek'), 'refresh');
+		$this->session->set_flashdata('sukses', 'Pekerjaan telah ditambah');
+		redirect(base_url('index.php/internal/projek/detail/'.$id), 'refresh');
 	}
 	}
 }
