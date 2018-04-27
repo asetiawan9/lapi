@@ -24,7 +24,7 @@ class Pembayaran extends CI_Controller
 		$klien1 	= $this->M_klien->listing();
 		$projek		= $this->M_projek->listing();
 		$projek1 	= $this->M_projek->listing();
-		$data = array(	'title' 			=> 'Data Pembayaran',
+		$data = array(	'title' 			=> 'Data Pembayaran', 
 						'pembayaran' 		=> $pembayaran,
 						'klien'				=> $klien,
 						'klien1'			=> $klien1,

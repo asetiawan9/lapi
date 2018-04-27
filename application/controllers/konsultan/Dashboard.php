@@ -8,7 +8,10 @@ class Dashboard extends CI_Controller
 	public function __construct()
 	 {
 	 		parent::__construct();
-	 	if ($this->session->userdata('username') == "" && $this->session->userdata('password') =="") {
+
+	 		$this->load->model('M_pesan');
+
+	 		if ($this->session->userdata('username') == "" && $this->session->userdata('password') =="") {
 			$this->session->set_flashdata('sukses', 'silahkan login terlebih dahulu');
 			redirect(base_url('index.php/login'), 'refresh');
 		}
@@ -20,6 +23,9 @@ class Dashboard extends CI_Controller
 
 	public function index()
 	{
+		$bdibaca = $this->M_pesan->belumDibaca();
+
+		//return $bdibaca;
 
 		$data 		= array (	'title'				=>	'Dasboard',
 								'web'				=>	'Dashboard',

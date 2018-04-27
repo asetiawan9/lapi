@@ -113,6 +113,46 @@ class M_pesan extends CI_Model
 		return $query->result();
     }
 
+    public function belumDibaca()
+    {
+
+    	$id_konsultan = $this->session->userdata('id_user');
+
+		static $query;
+
+		$statement = "
+		SELECT pesan.sub, pesan.id_pesan, pesan.isi_pesan, pesan.tanggal, (SELECT user.nama_user FROM user WHERE pesan.id_pengirim = user.id_user LIMIT 1) as pengirim 
+		FROM pesan WHERE pesan.id_user = $id_konsultan
+		AND pesan.dibaca = 'N'
+		AND id_pengirim IS NOT NULL
+		AND id_user = $id_konsultan
+		ORDER BY pesan.tanggal DESC
+		";
+
+		$this->db->select('*');
+    	$this->db->where('dibaca', 'N');
+		// $query = $this->db->get('pesan');
+		$query = $this->db->query($statement);
+ 
+		if($query->num_rows() > 0) return $query;
+		else return FALSE;
+
+
+    	// $this->db->select('*');
+    	// $this->db->get('pesan');
+    	// $query = $this->db->result();
+
+
+    	// if ($query->num_rows() > 0) {
+    	// 	return $query->result();
+    	// } else {
+    	// 	return FALSE;
+    	// // }
+
+    	// return $query;
+
+    }
+
 }
 
  ?>

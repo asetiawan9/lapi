@@ -50,16 +50,16 @@ if($this->session->flashdata('sukses'))
 		 <!-- row -->
 		                <h4 class="card-title"><?php echo $title ?></h4>
 		                <div class="table-responsive">
-		                    <table class="table color-table info-table">
+		                    <table class="table color-table info-table table-striped table-condensed" id="data">
 		                        <thead>
 		                            <tr>
-		                                <th>No</th>
-		                              	<th>No Bukti</th>
-		                                <th>Nama Projek</th>
-		                                <th>Klien</th>
-		                                <th>Tanggal Mulai</th>
-		                                <th>Batas Waktu</th>
-                                        <th>Ditugaskan Untuk</th>
+		                                <th style="color:#0f0f0f"><font size="2">No</font></th>
+		                              	<th style="color:#0f0f0f">No Bukti</th>
+		                                <th style="color:#0f0f0f">Nama Projek</th>
+		                                <th style="color:#0f0f0f">Klien</th>
+		                                <th style="color:#0f0f0f">Tanggal Mulai</th>
+		                                <th style="color:#0f0f0f">Batas Waktu</th>
+                                        <th style="color:#0f0f0f">Ditugaskan Untuk</th>
 		                            </tr>
 		                        </thead>
 		                        <tbody>

@@ -139,6 +139,13 @@ class Pesan extends CI_Controller
 
 	}
 
+	public function belumDibaca()
+	{
+		$bdibaca = $this->M_pesan->belumDibaca();
+
+		return $bdibaca;
+	}
+
 	
 
 }
