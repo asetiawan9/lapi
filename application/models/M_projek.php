@@ -53,10 +53,17 @@ class M_projek extends CI_Model
 		function get_one($id_projek)
     {
         $this->db->select(	'projek.*,
-							user.nama_user'
+							user.nama_user, 
+							user.telepon_user,
+							user.email_user,
+							klien.kontak_utama,
+							klien.telepon,
+							klien.email,
+							klien.alamat,'
 							);
 		$this->db->from('projek');
 		$this->db->join('user','user.id_user = projek.id_user','LEFT');
+		$this->db->join('klien','klien.id_klien = projek.id_klien','LEFT');
 		$this->db->where('id_projek', $id_projek);
 		$this->db->order_by('id_projek', 'DESC');
 		$query = $this->db->get();

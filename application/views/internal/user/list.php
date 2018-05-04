@@ -51,11 +51,13 @@ if($this->session->flashdata('sukses'))
 		 <!-- row -->
 		                <h4 class="card-title"><?php echo $title ?></h4>
 		                <div class="table-responsive">
-		                    <table class="table color-table info-table">
+		                    <table class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%" id="data">
 		                        <thead>
 		                            <tr>
 		                                <th>No</th>
 		                                <th>Nama Konsultan</th>
+                                        <th>Telepon</th>
+                                        <th>Email</th>
 		                                <th>Username</th>
                                         <th>Akses Level</th>
 		                                <th>Action</th>
@@ -66,6 +68,8 @@ if($this->session->flashdata('sukses'))
 		                            <tr>
 		                                <td><?php echo $i ?></td>
 		                                <td><?php echo $user->nama_user ?></td>
+                                        <td><?php echo $user->telepon_user ?></td>
+                                        <td><?php echo $user->email_user ?></td>
 		                                <td><?php echo $user->username ?></td>
 		                                <td><?php echo $user->akses_level ?></td>
 		                                <td>

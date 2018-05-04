@@ -29,6 +29,14 @@
             <label for="text">Username</label>
             <input type="text" id="username" name="username" class="form-control"> </div>
 
+        <div class="form-group">
+            <label for="text">Telepon</label>
+            <input type="text" id="telepon_user" name="telepon_user" class="form-control" required> </div>
+
+        <div class="form-group">
+            <label for="text">Email</label>
+            <input type="text" id="email_user" name="email_user" class="form-control" required> </div>
+
          <div class="form-group">
             <label>Password</label>
 	            <input type="Password" name="password" class="form-control"> </div>

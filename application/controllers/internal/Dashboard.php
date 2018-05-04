@@ -21,7 +21,6 @@ class Dashboard extends CI_Controller
 
 	public function index()
 	{
-		var_dump($this->session->userdata('akses_level'));
 		$pembayaran = $this->M_pembayaran->listing1();
 
 		//foreach ($pembayaran as $pembayaran) {

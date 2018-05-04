@@ -26,7 +26,12 @@
         <div class="form-group">
             <label for="text">Nama Projek</label>
             <input type="text" id="nama_projek" name="nama_projek" class="form-control" value="<?php echo $projek->nama_projek ?>"> </div>
-    <div class="form-group">
+
+         <div class="form-group">
+            <label for="text">Bidang Pekerjaan</label>
+            <input type="text" id="bidang_pekerjaan" name="bidang_pekerjaan" class="form-control" value="<?php echo $projek->bidang_pekerjaan ?>"> </div>
+                
+        <div class="form-group">
             <label>Klien</label>
                 <select name="id_klien" class="form-control">
                     <option value="" class="form-control"> - </option>
@@ -44,9 +49,7 @@
 	    <div class="form-group">
             <label>Batas Waktu</label>
 	            <input type="date" name="batas_waktu" class="form-control" value="<?php echo $projek->batas_waktu ?>" id="mdate"> </div>
-	    <div class="form-group">
-            <label>Deskripsi</label>
-	            <textarea type="text" name="deskripsi" class="form-control" value="<?php echo $projek->deskripsi ?>"><?php echo $projek->deskripsi ?></textarea> </div>
+	  
          <div class="form-group">
             <label>Ditugaskan Untuk</label>
                 <select name="id_user" class="form-control">

@@ -51,7 +51,7 @@ if($this->session->flashdata('sukses'))
 		 <!-- row -->
 		                <h4 class="card-title"><?php echo $title ?></h4>
 		                <div class="table-responsive">
-		                    <table class="table color-table info-table">
+		                    <table class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%" id="projek">
 		                        <thead>
 		                            <tr>
 		                                <th>No</th>
@@ -67,6 +67,7 @@ if($this->session->flashdata('sukses'))
 		                        <tbody>
 		                        	<?php $i = 1; foreach ($projek as $projek) { ?>
 		                            <tr>
+                                    
 		                                <td><?php echo $i ?></td>
 		                                <td><?php echo $projek->no_bukti ?></td>
 		                                <td><a class="btn btn-outline-success btn-sm" href="<?php echo base_url('index.php/internal/projek/detail/'.$projek->id_projek) ?>"><?php echo $projek->nama_projek ?></a></td>
@@ -94,3 +95,5 @@ if($this->session->flashdata('sukses'))
         <!-- ============================================================== -->
         <!-- End PAge Content -->
         <!-- ============================================================== -->
+
+        

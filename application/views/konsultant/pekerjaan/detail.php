@@ -1,3 +1,4 @@
+<?php $id = ($this->uri->segment(4))?$this->uri->segment(4):0; ?>
 <div class="page-wrapper">
     <!-- ============================================================== -->
     <!-- Bread crumb and right sidebar toggle -->
@@ -62,13 +63,17 @@
                     <div class="card-body">
 		 <!-- row -->
 		                <h4 class="card-title"><?php echo $titlepekerjaan ?></h4>
+                        <p><a href="<?php echo base_url('index.php/konsultan/pekerjaan/tambahpekerjaan/'.$id)?>" class="btn btn-info btn-sm"> <i class="fa fa-plus"></i> Tambah Data </a> </p>
+                        
 		                <div class="table-responsive">
 		                    <table class="table color-table info-table">
 		                        <thead>
 		                            <tr>
 		                                <th>No</th>
 		                              	<th>Tugas</th>
+                                        <th>Durasi</th>
 		                                <th width="200">Bukti</th>
+                                        <th width="90">Action</th>
 		                            </tr>
 		                        </thead>
 		                        <tbody>
@@ -76,12 +81,20 @@
 		                            <tr>
 		                                <td><?php echo $i ?></td>
 		                                <td><?php echo $pekerjaan->list_tugas ?></td>
+                                        <td><?php echo $pekerjaan->durasi ?></td>
                                         <?php if ($pekerjaan->bukti != "") {?>
                                         <td> <a target=\"_blank\" href="<?php echo base_url('assets/images/buktipekerjaan/'.$pekerjaan->bukti) ?>"><img width="200" src="<?php echo base_url('assets/images/buktipekerjaan/'. $pekerjaan->bukti) ?>"> </a> </td>
                                         <?php }else{ ?>
 
                                         <td > <?php include('upload.php'); ?></td>
+                                       
+                                            
+                                        
                                         <?php } ?>
+
+                                         <td>  <?php include('delete.php'); ?> 
+                                         <a href="<?php echo base_url('index.php/konsultan/pekerjaan/editpekerjaan/'.$pekerjaan->id_projek.'/'.$pekerjaan->id_pekerjaan) ?>" class="btn btn-sm btn-warning "><i class="fa fa-pencil"  ></i></a>
+                                     </td>
 		                            </tr>
 		                            <?php $i++; } ?>
 		                        </tbody>

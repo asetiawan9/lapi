@@ -1,3 +1,4 @@
+<?php $id_konsultan = $this->session->userdata('id_user');  ?>
       <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
@@ -21,12 +22,17 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                          <li class="nav-devider"></li>
+
                         <li class="nav-small-cap">PERSONAL</li>
                         <li> <a class="waves-effect waves-dark" href="<?php echo base_url() ?>index.php/konsultan/dashboard" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a>
                         </li>
 
                         <li> <a class="waves-effect waves-dark" href="<?php echo base_url() ?>index.php/konsultan/pekerjaan" aria-expanded="false"><i class="fa fa-handshake-o"></i><span class="hide-menu">List Projek / Pekerjaan </span></a>
                         </li>
+
+                         <li> <a class="waves-effect waves-dark" href="<?php echo base_url('index.php/konsultan/pesan/inbox/'.$id_konsultan) ?>" aria-expanded="false"><i class="fa fa-envelope-open"></i><span class="hide-menu">Pesan </span></a>
+                        </li>
+                        
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->

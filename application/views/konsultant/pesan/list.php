@@ -32,38 +32,23 @@
                 <!-- ============================================================== -->
                             <?php require_once('menu.php'); ?>
                             
-
-                        <div class="col-xlg-10 col-lg-9 col-md-8 bg-light-part b-l">
-                                <div class="card-body">
-                                    <?php echo form_open(base_url('index.php/internal/pesan/delete')); ?>
-
-                                    <div class="btn-group m-b-10 m-r-10" role="group" aria-label="Button group with nested dropdown">
-                                        <button type="button" class="btn btn-secondary font-18"><i class="mdi mdi-inbox-arrow-down"></i></button>
-                                        <button type="button" class="btn btn-secondary font-18"><i class="mdi mdi-alert-octagon"></i></button>
-                                        <button type="submit" class="btn btn-secondary font-18"><i class="mdi mdi-delete" onclick="return confirm('are you sure?')"></i></button>
-                                    </div>
-                                    
-                                </div>
-
                                     <div class="card-body p-t-0">
                                         <div class="card b-all shadow-none">
                                             <div class="inbox-center table-responsive">
                                                 <table class="table table-hover no-wrap">
                                                     <tbody>
-                                                        <?php if ($id_konsultan == $user1) { 
-
-                                                            foreach ($pesan as $p) { ?>
+                                                        <?php if ($id_konsultan == $user1) { ?>
                                                         
+                                                        <?php  foreach ($pesan as $p) { ?>
                                                         <tr class="unread">
                                                             <td style="width:40px">
                                                                 <div class="checkbox">
-                                                                    <input type="checkbox" id="checkbox0" value="<?php echo $p->id_pesan ?>" name="id_pesan[]">
+                                                                    <input type="checkbox" id="checkbox0" value="check">
                                                                     <label for="checkbox0"></label>
                                                                 </div>
                                                             </td>
-                                                            
+                                                            <td style="width:40px" class="hidden-xs-down"><i class="fa fa-star-o"></i></td>
                                                             <td class="hidden-xs-down"><?php echo $p->nama_user ?></td>
-                                                            
                                                             <td class="max-texts"> <a href="<?php echo base_url('index.php/internal/pesan/detailpesan/'.$p->id_pesan) ?>" /> <?php echo $p->isi_pesan; ?></td>
                                                             
                                                             <td class="text-right"> <?php echo $date; ?> </td>
@@ -72,9 +57,7 @@
                                                         <?php }
                                                                  }else{ ?>
                                                         
-                                                        <center><p>Tidak ada pesan</p></center>
-
-                                                        <br><br><br><br><br><br><br><br>
+                                                        <center><p>Tidak ada pesan</p></center><br><br><br><br><br><br><br><br>
 
                                                         <?php } ?>
                                                     </tbody>
@@ -82,13 +65,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                      <?php 
-                            //form close
-                            echo form_close() ?>
                                 </div>
-
-                              
-
                             </div>
                         </div>
                     </div>

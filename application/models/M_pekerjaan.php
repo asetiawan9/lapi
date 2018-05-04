@@ -92,6 +92,7 @@ class M_pekerjaan extends CI_Model
 		return $query->result();
 	}
 
+	
 }
 
  ?>

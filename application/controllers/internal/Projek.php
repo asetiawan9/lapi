@@ -7,7 +7,7 @@ class Projek extends CI_Controller
 	//load model
 	public function __construct()
 	{
-		parent::__construct();
+		parent::__construct(); 
 		$this->load->model('M_projek');
 		$this->load->model('M_klien');
 		$this->load->model('M_user');
@@ -64,9 +64,9 @@ class Projek extends CI_Controller
 							'id_klien'		=> $i->post('id_klien'),
 							'no_bukti'		=> $i->post('no_bukti'),
 							'nama_projek'	=> $i->post('nama_projek'),
+							'bidang_pekerjaan'	=> $i->post('bidang_pekerjaan'),
 							'tanggal_mulai'	=> $i->post('tanggal_mulai'),
-							'batas_waktu'	=> $i->post('batas_waktu'),
-							'deskripsi'		=> $i->post('deskripsi')							
+							'batas_waktu'	=> $i->post('batas_waktu')							
 						);
 			$this->M_projek->tambah($data);
 			$this->session->set_flashdata('sukses', 'Data telah ditambah');
@@ -91,20 +91,20 @@ class Projek extends CI_Controller
 			//end validasi
 			$data = array(	'title' 		=> 'Edit Projek'.$projek->nama,
 							'projek'		=> $projek,
-							'pekerjaan'			=> $pekerjaan,
+							'pekerjaan'		=> $pekerjaan,
 							'isi' 			=> 'internal/projek/edit');
 			$this->load->view('layouts/wrapper', $data, FALSE);
 			//jka tak error
 		}else{
 			$i = $this->input;
 			$data = array( 	'id_projek'			=> $id_projek,
-							'id_user'	=> $i->post('id_user'),
-							'id_klien'		=> $i->post('id_klien'),
-							'no_bukti'		=> $i->post('no_bukti'),
-							'nama_projek'	=> $i->post('nama_projek'),
-							'tanggal_mulai'	=> $i->post('tanggal_mulai'),
-							'batas_waktu'	=> $i->post('batas_waktu'),
-							'deskripsi'		=> $i->post('deskripsi'));
+							'id_user'			=> $i->post('id_user'),
+							'id_klien'			=> $i->post('id_klien'),
+							'no_bukti'			=> $i->post('no_bukti'),
+							'nama_projek'		=> $i->post('nama_projek'),
+							'bidang_pekerjaan'	=> $i->post('bidang_pekerjaan'),
+							'tanggal_mulai'		=> $i->post('tanggal_mulai'),
+							'batas_waktu'		=> $i->post('batas_waktu'));
 			$this->M_projek->edit($data);
 			$this->session->set_flashdata('sukses', 'Data berhasil dirubah');
 			redirect(base_url('index.php/internal/Projek'), 'refresh');
@@ -127,9 +127,6 @@ class Projek extends CI_Controller
 			$projek = $this->M_projek->get_one($id_projek);
 			$pekerjaan = $this->M_projek->pekerjaan($id_projek);
 			$pekerjaan1 = $this->M_projek->pekerjaan($id);
-
-
-
 
 			$data = array(	'id_projek'			=> $id_projek,
 							'id'				=> $id,

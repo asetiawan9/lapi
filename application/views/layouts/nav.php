@@ -42,8 +42,7 @@
                         <li> <a class="waves-effect waves-dark" href="<?php echo base_url() ?>index.php/internal/user" aria-expanded="false"><i class="fa fa-user"></i><span class="hide-menu">User </span></a>
                         </li>
 
-                        <li> <a class="waves-effect waves-dark" href="<?php echo base_url() ?>index.php/internal/pekerjaan" aria-expanded="false"><i class="fa fa-user"></i><span class="hide-menu">Pekerjaan </span></a>
-                        </li>
+                        
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->

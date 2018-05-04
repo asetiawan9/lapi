@@ -43,7 +43,6 @@ if($this->session->flashdata('sukses'))
 } ?>
 
         	<?php include('tambah.php'); ?>
-
         </div>
 
             <div class="col-12">
@@ -52,7 +51,7 @@ if($this->session->flashdata('sukses'))
 		 <!-- row -->
 		                <h4 class="card-title"><?php echo $title ?></h4>
 		                <div class="table-responsive">
-		                    <table class="table color-table info-table">
+		                    <table class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%" id="data">
 		                        <thead>
 		                            <tr>
 		                                <th>No</th>
@@ -91,6 +90,7 @@ if($this->session->flashdata('sukses'))
         </div>
     </div>
 </div>
+
 
         <!-- ============================================================== -->
         <!-- End PAge Content -->

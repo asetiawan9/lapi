@@ -33,6 +33,7 @@
             <div class="col-12">
 <?php 
 
+$id = ($this->uri->segment(4))?$this->uri->segment(4):0;
 // notifikasi
 
 if($this->session->flashdata('sukses'))
@@ -47,44 +48,42 @@ if($this->session->flashdata('sukses'))
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-		 <!-- row -->
-		                <h4 class="card-title"><?php echo $title ?></h4>
-		                <div class="table-responsive">
-		                    <table class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%" id="data">
-		                        <thead>
-		                            <tr>
-		                                <th >No</th>
-		                              	<th >No Bukti</th>
-		                                <th >Nama Projek</th>
-		                                <th >Klien</th>
-		                                <th >Tanggal Mulai</th>
-		                                <th >Batas Waktu</th>
-                                        <th >Ditugaskan Untuk</th>
-		                            </tr>
-		                        </thead>
-		                        <tbody>
-		                        	<?php $i = 1; foreach ($projek as $projek) { ?>
-		                            <tr>
-		                                <td><?php echo $i ?></td>
-		                                <td><?php echo $projek->no_bukti ?></td>
-		                                <td><a class="btn btn-outline-success btn-sm" href="<?php echo base_url('index.php/konsultan/pekerjaan/detail/'.$projek->id_projek) ?>"><?php echo $projek->nama_projek ?></a></td>
-		                                <td><?php echo $projek->nama ?></td>
-		                                <td><?php echo $projek->tanggal_mulai ?></td>
-		                                <td><?php echo $projek->batas_waktu ?></td>
-                                        <td><?php echo $projek->nama_user ?></td>
-		                            </tr>
-		                            <?php $i++; } ?>
-		                        </tbody>
-		                    </table>
-		                </div>
+     <!-- row -->
+                    <h4 class="card-title"><?php echo $title ?></h4>
+
+        <?php echo form_open(base_url('index.php/konsultan/pekerjaan/tambahpekerjaan/'.$id));
+        ?>
+
+        <div class="form-group row">
+          <label for="example-text-input" class="col-md-2 col-form-label">Judul Pekerjaan</label>
+          <div class="col-md-10">
+            <textarea rows="4" cols="50" placeholder="Masukan Pekerjaan" class="form-control form-control-line" name="list_tugas"></textarea>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="example-text-input" class="col-md-2 col-form-label">Selesai Pekerjaan</label>
+          <div class="col-md-10">
+            <input class="form-control" id="single-input" name="durasi" placeholder="Selesai Pada Jam"> <span class="input-group-btn">
+          </div>
+        </div>
+
+                 
+        <input type="hidden" name="id_projek" value="<?php echo $id ?>" >
+        
+          <input type="submit" name="submit" class="btn btn-info" value="Simpan Data">
+          
+
+        <?php 
+        //form close
+        echo form_close() ?>
+
                     </div>
                 </div>
             </div>
         </div>
-       
-        </div>
-
     </div>
+</div>
 
         <!-- ============================================================== -->
         <!-- End PAge Content -->

@@ -16,7 +16,7 @@
 		echo validation_errors('<div class="alert alert-danger"<i class="fa fa-warning"></i>','</div>');
 
 		//open form
-		echo form_open(base_url('index.php/internal/klien/tambah'));
+		echo form_open_multipart(base_url('index.php/internal/klien/tambah'));
 		?>
 
 		<div class="form-group">
@@ -48,6 +48,13 @@
 	    <div class="form-group">
             <label>Provonsi</label>
 	            <input type="text" name="provinsi" class="form-control" placeholder="Provonsi"> </div>
+	    <div class="form-group">
+            <label>Akte Perusahaan</label>
+	            <input type="file" name="akte_perusahaan" class="form-control" placeholder="Provonsi"> </div>
+
+	    <div class="form-group">
+            <label>SIUP</label>
+	            <input type="file" name="siup" class="form-control" placeholder="Provonsi"> </div>
 	    
 
 

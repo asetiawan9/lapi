@@ -35,6 +35,14 @@ class User extends CI_Controller
 		$valid->set_rules('nama_user','Nama', 'required',
 			array(	'required'		=> 'Nama harus diisi'));
 
+		$valid->set_rules('telepon_user','Telepon', 'required',
+			array(	'required'		=> 'No Telepon harus diisi',
+					));
+
+		$valid->set_rules('email_user','Email', 'required',
+			array(	'required'		=> 'Email harus diisi',
+					));
+
 		$valid->set_rules('username','Username', 'required',
 			array(	'required'		=> 'Username harus diisi'));
 		
@@ -51,7 +59,9 @@ class User extends CI_Controller
 			//jka tak error
 		}else{
 			$i = $this->input;
-			$data = array( 	'nama_user'			=> $i->post('nama_user'),
+			$data = array( 	'nama_user'		=> $i->post('nama_user'),
+							'telepon_user'	=> $i->post('telepon_user'),
+							'email_user'	=> $i->post('email_user'),
 							'username'		=> $i->post('username'),
 							'password'		=> sha1($i->post('password')),
 							'akses_level'	=> $i->post('akses_level'),
@@ -89,12 +99,16 @@ class User extends CI_Controller
 			if(strlen($i->post('password')) > 6){
 			$data = array( 	'id_user'		=> $id_user,
 							'nama_user'		=> $i->post('nama_user'),
+							'telepon_user'	=> $i->post('telepon_user'),
+							'email_user'	=> $i->post('email_user'),
 							'password'		=> sha1($i->post('password')),
 							'akses_level'	=> $i->post('akses_level')
 						);
 		}else{
 			$data = array(	'id_user'		=> $id_user,
 							'nama_user'		=> $i->post('nama_user'),
+							'telepon_user'	=> $i->post('telepon_user'),
+							'email_user'	=> $i->post('email_user'),
 							'akses_level'	=> $i->post('akses_level'));
 		}
 			$this->M_user->edit($data);

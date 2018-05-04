@@ -37,7 +37,7 @@
     <script src="<?php echo base_url() ?>assets/js/sidebarmenu.js"></script>
     <!--stickey kit -->
     <script src="<?php echo base_url() ?>assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/plugins/sparkline/jquery.sparkline.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/plugins/sparkline/jquery.sparkline.min.js"></script> 
     <!--Custom JavaScript -->
     <script src="<?php echo base_url() ?>assets/js/custom.min.js"></script>
     <!-- ============================================================== -->
@@ -60,17 +60,74 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 
+ <!-- Date picker-->
+
+    <script src="<?php echo base_url() ?>assets/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+    <!-- Clock Plugin JavaScript -->
+    <script src="<?php echo base_url() ?>assets/plugins/clockpicker/dist/jquery-clockpicker.min.js"></script>
+    <!-- Color Picker Plugin JavaScript -->
+    <script src="<?php echo base_url() ?>assets/plugins/jquery-asColorPicker-master/libs/jquery-asColor.js"></script>
+    <script src="<?php echo base_url() ?>assets/plugins/jquery-asColorPicker-master/libs/jquery-asGradient.js"></script>
+    <script src="<?php echo base_url() ?>assets/plugins/jquery-asColorPicker-master/dist/jquery-asColorPicker.min.js"></script>
+    <!-- Date Picker Plugin JavaScript -->
+    <script src="<?php echo base_url() ?>assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+    <!-- Date range Plugin JavaScript -->
+    <script src="<?php echo base_url() ?>assets/plugins/timepicker/bootstrap-timepicker.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+
+
+ <!-- Data table internal atau admin-->
+
+<script type="text/javascript">
+    // Clock pickers
+    $('#single-input').clockpicker({
+        placement: 'bottom',
+        align: 'left',
+        autoclose: true,
+        'default': 'now'
+    });
+
+</script>
+
+ <!-- Data table projek -->
+ <script type="text/javascript">
+        
+        $('#projek').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+        'pdf', 'print'
+        ]
+    });
+
+    </script>
+
+ <!-- Data table klien -->
+
+    <script type="text/javascript">
+        
+        $('#klien').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'pdf', 'print'
+        ]
+    });
+
+    </script>
+
+ <!-- Data table konsultan atau projek manajer-->
     <script type="text/javascript">
         
         $('#data').DataTable({
         dom: 'Bfrtip',
         buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
+            'pdf', 'print'
         ]
     });
 
+    </script> 
 
-    </script>
+    
     <!-- Notifikasi Pesan -->
     <script type="text/javascript">
         $(document).ready(function(){
@@ -144,6 +201,7 @@
 
         });
     </script>
+
     <!-- /Notifikasi Pesan -->
 </body>
 

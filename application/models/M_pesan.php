@@ -41,15 +41,11 @@ class M_pesan extends CI_Model
 		return $query->row();
 	}
 
-	//edit
-	public function edit($data){
-		$this->db->where('id_projek', $data['id_projek']);
-		$this->db->update('projek',$data);
-	}
+	
 	//hapus
-	public function delete($data){
-		$this->db->where('id_projek', $data['id_projek']);
-		$this->db->delete('projek',$data);
+	public function delete($id_pesan){
+		$this->db->where('id_pesan', $id_pesan);
+		$this->db->delete('pesan');
 	}
 
 		function get_one($id_projek)

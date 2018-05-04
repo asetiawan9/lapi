@@ -72,4 +72,38 @@ class Pesan extends CI_Controller
 		echo json_encode($data);
 
 	}
+
+	public function inbox($id_user)
+	{
+		$id_konsultan = $this->session->userdata('id_user');
+	//	$id_pesan = $this->M_pesan->detail($id_pesan);
+
+		
+		$user = $this->M_pesan->getHiji($id_user);
+
+		if ($id_konsultan != $user) {
+			$user1 	= $user->id_user;
+			//$user2	= $user->id_user,
+			$date 	= $user->tanggal;
+			$date 	= date("d-m-Y");
+		}else{
+			$user1	= null;
+			$user2 	= null;
+			$date 	= null;
+		}
+		
+		$pesan = $this->M_pesan->getPesan($id_user);
+
+		$data = array(	'id_konsultan'		=> $id_konsultan,
+						// 'id_pesan'			=> $id_pesan,
+						'id_user'			=> $id_user,
+						'date'				=> $date,
+						'pesan'				=> $pesan,
+						'user1'				=> $user1,
+						//'user2'				=> $user2,
+						'title' 			=> 'Pesan',
+						'isi' 				=> 'konsultant/pesan/list');
+		$this->load->view('layouts/wrapper', $data, FALSE);
+
+	}
 }

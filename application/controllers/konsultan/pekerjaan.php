@@ -39,26 +39,61 @@ class pekerjaan extends CI_Controller
 
 		public function detail($id_projek)
 		{
+			$id = ($this->uri->segment(4))?$this->uri->segment(4):0;
 			$projek = $this->M_projek->get_one($id_projek);
 			$pekerjaan = $this->M_pekerjaan->get_one($id_projek);
 			$komentar = $this->M_pekerjaan->komentar($id_projek);
 
 			$data = array(	'id_projek'			=> $id_projek,
 							'titlepekerjaan'	=> 'List Pekerjaan',
-							'title' 			=> $projek->nama_projek,
+							'title' 			=> 'Upload Bukti',
 							'projek' 			=> $projek,
 							'pekerjaan'			=> $pekerjaan,
 							'komentar'			=> $komentar,
+							'id'				=> $id,
 							'isi' 				=> 'konsultant/pekerjaan/detail');
 			$this->load->view('layouts/wrapper', $data, FALSE);
 		}
 
-		public function uploadbukti($id_pekerjaan)
+		
+
+	public function tambahpekerjaan($id_projek)
+	{
+		$pekerjaan 	= $this->M_pekerjaan->detail1($id_projek);
+		$id = ($this->uri->segment(4))?$this->uri->segment(4):0;
+
+		
+		//validasi
+		$valid = $this->form_validation; 
+		$valid->set_rules(	'list_tugas','Nama Pekerjaan', 'required',
+				array(		'required'		=> ' Nama pekerjaan harus diisi'));
+
+		if ($valid->run()=== FALSE) {
+		$data = array(		'title' 	 		=> 'Tambah Pekerjaan',
+							'id'				=> $id,
+							'pekerjaan' 		=> 	$pekerjaan,
+							'isi' 	 			=> 'konsultant/pekerjaan/tambahpekerjaan');
+		$this->load->view('layouts/wrapper', $data, FALSE);
+		}else{
+		$i = $this->input;
+		$data = array ( 	'id_projek'		=>	$i->post('id_projek'),
+							'list_tugas'	=>	$i->post('list_tugas'),
+							'durasi'		=>  $i->post('durasi')
+
+						);
+		$this->M_pekerjaan->tambah($data);
+		$this->session->set_flashdata('sukses', 'Pekerjaan telah ditambah');
+		redirect(base_url('index.php/konsultan/pekerjaan/detail/'.$id), 'refresh');
+	}
+	}
+
+	public function uploadbukti($id_pekerjaan)
 		{
 			
 		
 			$pekerjaan = $this->M_pekerjaan->detail($id_pekerjaan);
 			$id_projek = $this->input->post('id_projek');
+			$id = ($this->uri->segment(4))?$this->uri->segment(4):0;
 
 			//kalau cover d upload 
 			if(!empty($_FILES['bukti']['name'])){
@@ -107,8 +142,56 @@ class pekerjaan extends CI_Controller
 		}}
 
 		}
+	public function delete($id_projek, $id_pekerjaan)
+		{
 
+			
+			// $id_projek = $this->input->post('id_projek');
+			// echo var_dump($id_projek);
+			$pekerjaan = $this->M_pekerjaan->detail($id_pekerjaan);
+			//$id = ($this->uri->segment(4))?$this->uri->segment(4):0;
 
+			$data = array('id_pekerjaan' => $id_pekerjaan,
+							'id_projek' => $id_projek);
+
+			$this->M_pekerjaan->delete($data);
+			if($pekerjaan->bukti != "")
+				{
+					unlink('./assets/images/buktipekerjaan/'.$pekerjaan->bukti);
+						
+				}
+			$this->session->set_flashdata('sukses', 'Data telah dihapus');
+			redirect(base_url('index.php/konsultan/pekerjaan/detail/'.$id_projek), 'refresh');
+		}
+
+	public function editpekerjaan($id_projek, $id_pekerjaan)
+		{
+			$pekerjaan 	= $this->M_pekerjaan->detail1($id_projek);
+			$id = ($this->uri->segment(4))?$this->uri->segment(4):0;
+			
+			//validasi
+			$valid = $this->form_validation; 
+			$valid->set_rules(	'list_tugas','Nama Pekerjaan', 'required',
+					array(		'required'		=> ' Nama pekerjaan harus diisi'));
+
+			if ($valid->run()=== FALSE) {
+			$data = array(		'title' 	 		=> 'Tambah Pekerjaan',
+								'id'				=> $id,
+								'pekerjaan' 		=> 	$pekerjaan,
+								'isi' 	 			=> 'konsultant/pekerjaan/edit');
+			$this->load->view('layouts/wrapper', $data, FALSE);
+			}else{
+			$i = $this->input;
+			$data = array ( 	'id_projek'		=>	$i->post('id_projek'),
+								'list_tugas'	=>	$i->post('list_tugas'),
+								'durasi'		=>  $i->post('durasi')
+
+							);
+			$this->M_pekerjaan->tambah($data);
+			$this->session->set_flashdata('sukses', 'Pekerjaan telah ditambah');
+			redirect(base_url('index.php/konsultan/pekerjaan/detail/'.$id), 'refresh');
+		}
+		}
 
 }
 

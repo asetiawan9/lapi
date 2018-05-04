@@ -146,6 +146,17 @@ class Pesan extends CI_Controller
 		return $bdibaca;
 	}
 
+	public function delete()
+	{
+		$id_konsultan = $this->session->userdata('id_user');
+		
+		foreach ($_POST['id_pesan'] as $id_pesan) {
+			$this->M_pesan->delete($id_pesan);
+
+		}
+		return redirect(base_url('index.php/internal/pesan/index/'.$id_konsultan ), 'refresh');
+	}
+
 	
 
 }

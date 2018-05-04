@@ -18,7 +18,7 @@
     </div>
 <div class="col-md-12">
 <?php 
-
+ 
 // notifikasi
 
 if($this->session->flashdata('sukses'))
@@ -57,7 +57,7 @@ if($this->session->flashdata('sukses'))
                                 <?php echo $projek->no_bukti; ?>
                                 <hr>
                             
-                                <p><label>Status:</label><br>
+                                <p><label>Nama Projek:</label><br>
                                 <?php echo $projek->nama_projek; ?></p>
                                 <hr>
 
@@ -70,8 +70,28 @@ if($this->session->flashdata('sukses'))
                                 <?php echo $projek->batas_waktu; ?></p>
                                 <hr>
 
-                                <p><label>Ditugaskan Untuk:</label><br>
+                                <p><label>Ketua Tim Pelaksana:</label><br>
                                 <?php echo $projek->nama_user; ?></p>
+                                <hr>
+
+                                <p><label>Kontak Pelakasana:</label><br>
+                                <i class="fa fa-phone"> </i> <?php echo $projek->telepon_user; ?>
+                                <br>
+                                    <i class="ti ti-email"> </i><?php echo $projek->email_user; ?></p>
+                                <hr>
+
+                                <p><label>Nama Kien:</label><br>
+                                <?php echo $projek->kontak_utama; ?></p>
+                                <hr>
+
+                                 <p><label>Kontak Klien:</label><br>
+                                <i class="fa fa-phone"> </i> <?php echo $projek->telepon; ?>
+                                <br>
+                                    <i class="ti ti-email"> </i><?php echo $projek->email; ?></p>
+                                <hr>
+
+                                <p><label>Alamat Klien:</label><br>
+                                <?php echo $projek->alamat; ?></p>
                                 <hr>
 
                             </div>                
@@ -99,6 +119,7 @@ if($this->session->flashdata('sukses'))
             <div class="col-lg-12 col-xlg-9 col-md-7">
                 <div class="card">
                     <div class="card-body">
+                    
 		 <!-- row --><?php include('tambahpekerjaan.php'); ?>
 		                <h4 class="card-title"><?php echo $titlepekerjaan ?></h4>
 		                <div class="table-responsive">

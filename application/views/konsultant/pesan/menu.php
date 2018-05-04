@@ -22,4 +22,12 @@
                                         
                                     </div>
                                 </div>
-                                
+                                <div class="col-xlg-10 col-lg-9 col-md-8 bg-light-part b-l">
+                                    <div class="card-body">
+                                        <div class="btn-group m-b-10 m-r-10" role="group" aria-label="Button group with nested dropdown">
+                                            <button type="button" class="btn btn-secondary font-18"><i class="mdi mdi-inbox-arrow-down"></i></button>
+                                            <button type="button" class="btn btn-secondary font-18"><i class="mdi mdi-alert-octagon"></i></button>
+                                            <button type="button" class="btn btn-secondary font-18"><i class="mdi mdi-delete"></i></button>
+                                        </div>
+                                        
+                                    </div>
